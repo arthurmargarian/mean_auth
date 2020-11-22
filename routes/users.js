@@ -28,7 +28,7 @@ router.post('/login', (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    User.getByUsername({username:username}, (err, user) => {
+    User.getByUsername({username: username}, (err, user) => {
         if (err) throw err;
         if (!user) {
             return res.json({success: false, msg: 'User not found'})
@@ -58,8 +58,8 @@ router.post('/login', (req, res, next) => {
 });
 
 // Profile
-router.get('/profile',passport.authenticate('jwt',{session:false }), (req, res, next) => {
-    res.json({uesr:req.user})
+router.get('/profile', passport.authenticate("jwt", {"session": false}), (req, res, next) => {
+    res.json({user: req.user})
 });
 
 
