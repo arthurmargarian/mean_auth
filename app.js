@@ -6,8 +6,15 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/db');
 
+const uri = "mongodb+srv://user:pass@mean-db.cqwkl.mongodb.net/test?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
 // Connect to db
-mongoose.connect(config.database, {useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect(uri, {useUnifiedTopology: true, useNewUrlParser: true});
 
 mongoose.connection.on('connected', () => {
     console.log(`Connected to ${config.database} db`);
