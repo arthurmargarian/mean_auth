@@ -29,7 +29,8 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 
 // Set Static folder
-const distDir = path.join(__dirname + "/dist/");
+// const distDir = path.join(__dirname + "/dist/");
+const distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
 // // Body Parser Middleware
