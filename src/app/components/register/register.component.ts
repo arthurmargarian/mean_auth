@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../../services/auth.service";
-import { Router } from "@angular/router";
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -25,9 +25,9 @@ export class RegisterComponent implements OnInit {
       email: this.email,
       username: this.username,
       password: this.password,
-    }
+    };
     if (!this.name || !this.username || !this.email || !this.password) {
-      console.log('fill all fields')
+      console.log('fill all fields');
     } else {
       this.authService.registerUser(user)
         .subscribe((res) => {

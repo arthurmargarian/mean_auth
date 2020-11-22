@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AuthService {
     const url = 'users/register';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    return this.http.post(url, user, {headers: headers});
+    return this.http.post(url, user, {headers});
   }
 
   public loginUser(credentials): Observable<any> {
@@ -26,15 +26,15 @@ export class AuthService {
     const url = 'users/login';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    return this.http.post(url, credentials, {headers: headers});
+    return this.http.post(url, credentials, {headers});
   }
 
   public getProfile(): Observable<any> {
     const url = 'users/profile';
     this.loadToken();
-    const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': this.authToken});
+    const headers = new HttpHeaders({'Content-Type': 'application/json', Authorization: this.authToken});
 
-    return this.http.get(url, {headers: headers});
+    return this.http.get(url, {headers});
   }
 
   public loadToken() {

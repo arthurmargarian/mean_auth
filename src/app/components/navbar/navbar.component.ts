@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../../services/auth.service";
-import { Router } from "@angular/router";
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
 
   onLogOutClick() {
     this.authService.logOut();
-    this.router.navigate([''])
+    this.router.navigate(['']);
     alert('You now log out.');
   }
 }

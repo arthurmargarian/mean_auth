@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../../services/auth.service";
-import { Router } from "@angular/router";
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,17 +22,17 @@ export class LoginComponent implements OnInit {
     const credentials = {
       username: this.username,
       password: this.password
-    }
+    };
     this.authService.loginUser(credentials)
-      .subscribe(res=>{
-        if(res.success){
+      .subscribe(res => {
+        if (res.success) {
           alert('You are now Logged In');
-          this.authService.storeUserData(res.token,res.user);
+          this.authService.storeUserData(res.token, res.user);
           this.router.navigate(['/profile']);
           this.authService.isLogged = true;
-        }else{
+        } else {
           alert(res.msg);
         }
-      })
+      });
   }
 }
