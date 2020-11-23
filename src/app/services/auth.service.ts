@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,15 @@ export class AuthService {
   authToken: any;
   user: any;
 
+  public host = environment.host;
+
   public isLogged: boolean;
 
   constructor(private http: HttpClient) {
   }
 
   public registerUser(user): Observable<any> {
-    const url = 'users/register';
+    const url = this.host + '/users/register';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     return this.http.post(url, user, {headers});
@@ -23,14 +26,14 @@ export class AuthService {
 
   public loginUser(credentials): Observable<any> {
 
-    const url = 'users/login';
+    const url = this.host + '/users/login';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     return this.http.post(url, credentials, {headers});
   }
 
   public getProfile(): Observable<any> {
-    const url = 'users/profile';
+    const url = this.host + '/users/profile';
     this.loadToken();
     const headers = new HttpHeaders({'Content-Type': 'application/json', Authorization: this.authToken});
 
