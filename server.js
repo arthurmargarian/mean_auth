@@ -35,7 +35,7 @@ server.use(cors());
 // Set Static folder
 // const distDir = path.join(__dirname + "/dist/");
 // const distDir = __dirname + "/dist/";
-server.use(express.static("../dist"));
+server.use(express.static("dist"));
 
 // // Body Parser Middleware
 server.use(bodyParser.json());
