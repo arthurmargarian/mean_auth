@@ -1,0 +1,22 @@
+{
+  "name": "meanauth",
+  "version": "1.0.0",
+  "description": "MEAN stack Server-Side",
+  "main": "app.js",
+  "author": "Arthur Margarian",
+  "license": "ISC",
+  "scripts": {
+    "start": "node app.js",
+    "nodemon": "nodemon"
+  },
+  "dependencies": {
+    "express": "*",
+    "mongoose": "*",
+    "bcryptjs": "*",
+    "cors": "*",
+    "jsonwebtoken": "*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  }
+}

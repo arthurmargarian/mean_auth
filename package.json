@@ -3,25 +3,18 @@
   "version": "1.0.0",
   "description": "MEAN stack auth app",
   "main": "app.js",
+  "author": "Arthur Margarian",
+  "license": "ISC",
   "scripts": {
-    "start": "node app.js",
-    "nodemon": "nodemon",
-    "ng": "ng",
+    "start": "node ./server/app.js",
     "ng_start": "ng serve --port 3001",
     "build": "ng build",
+    "build_prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "dependencies": {
-    "express": "*",
-    "mongoose": "*",
-    "bcryptjs": "*",
-    "cors": "*",
-    "jsonwebtoken": "*",
-    "body-parser": "*",
-    "passport": "*",
-    "passport-jwt": "*",
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",
@@ -56,7 +49,5 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
-  },
-  "author": "Arthur Margarian",
-  "license": "ISC"
+  }
 }

@@ -6,7 +6,12 @@ const mongoose = require('mongoose');
 const config = require('./config/db');
 
 // Connect to db
-mongoose.connect(config.database, {useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect(config.database, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+});
 
 mongoose.connection.on('connected', () => {
     console.log(`Connected to ${config.database} db`);
@@ -22,15 +27,15 @@ const app = express();
 const users = require('./routes/users');
 
 // Port Number
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 
 // // Cors Middleware
 app.use(cors());
 
 // Set Static folder
 // const distDir = path.join(__dirname + "/dist/");
-const distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
+// const distDir = __dirname + "/dist/";
+app.use(express.static("../dist"));
 
 // // Body Parser Middleware
 app.use(bodyParser.json());
